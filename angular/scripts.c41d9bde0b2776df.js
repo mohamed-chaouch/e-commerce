@@ -1,0 +1,1 @@
+function rangeSlider(e){document.getElementById("rangeValue").innerHTML=e,document.getElementById("rangeValue2").innerHTML="Prix "+e+" - 200DT",hide=document.getElementById("hi"),hide.classList.add("hide")}
