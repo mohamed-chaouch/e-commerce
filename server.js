@@ -1,9 +1,5 @@
 const express = require('express');
 
-const app = express();
-
-require('./config/connect');
-
 const clientRoute = require('./routes/client');
 
 const adminRoute = require('./routes/administrateur');
@@ -16,11 +12,15 @@ const favorieRoute = require('./routes/favorie');
 
 const panierRoute = require('./routes/panier');
 
-app.use(express.json());
+require('./config/connect');
+
+const app = express();
 
 const cors = require('cors');
 
-app.use(cors());
+app.use( cors() );
+
+app.use( express.json() );
 
 app.use( '/client' , clientRoute );
 
@@ -34,7 +34,7 @@ app.use( '/favorie' , favorieRoute );
 
 app.use( '/panier' , panierRoute);
 
-app.use( '/getimage' , express.static('./uploads'));
+app.use( '/getimage' , express.static('./uploads') );
 
 app.use(express.static('./angular'));
 
